@@ -291,7 +291,32 @@ ico =================================*/
 }
 
 
+
+/*menu*/
+
+
+#h7_start_box_menu ul{
+	display:block;
+	margin:0px 0px 0px 0px;padding:0px 14px 0px 64px;
+	height:40px;
+	background-color:#b8b8b8;
+	font-size:12px;
+	list-style-type: none;
+}
+#h7_start_box_menu ul:hover{
+	background-color:#4e4040;
+}
+
+
+
 /*//start ======================*/
+
+
+
+
+
+
+
 
 
 
