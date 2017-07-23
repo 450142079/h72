@@ -1,0 +1,65 @@
+﻿
+
+
+
+
+body {
+	text-align:center;
+ padding:0px;
+ margin:0px;
+
+ background-color: #000;
+ color:#fff;
+ font-size:12px;
+ font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
+}
+
+
+.input_bl{
+	float:left;
+	margin:15px;
+	padding:10px 20px;
+	display:inline-block;
+	text-align:right;
+	background-color:#555;
+}
+.input_bl a{
+	float:left;
+	color:#fff;
+}
+
+h1{
+	background-color:#555;
+	padding:15px;
+ 	margin:0px;
+
+}
+input{
+	outline: #fff;
+	margin:2px;
+	padding:3px 10px;
+	color:#fd0;
+	background-color:#333;
+	border-width:0px;
+}
+
+
+
+.log{
+	min-width:700px;
+	min-height:400px;
+	background-color:#333;
+	border-width:0px;
+	color:#fff;
+	margin:0px;
+	padding:10px 20px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,883 @@
+﻿/*
+i1,i2 - Блоки с картинками, в основном применяется к тегу i
+i1phone  - позиция с телефоном
+
+
+
+*/
+
+
+
+body {
+ padding:0px;margin:0px;
+ min-width: 300px;
+ background-image:url(./../themes/default/background.jpg);
+ background-color: #e1cfb9;
+ color:#000;
+ font-size:12px;
+ font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*polosi ===============================*/
+/*videlenie*/
+::selection {
+background:#fc9;; 
+}
+/*scroll*/
+::-webkit-scrollbar{
+    width:14px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #5a463f;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #5a463f;
+}
+::-webkit-scrollbar-track:hover{
+    border-left: solid 12px #998878;
+    background-color: #998878;
+}
+
+/*//polosi ===============================*/
+
+
+
+
+
+
+
+
+
+
+/*ico ===================================
+
+.i0{
+	background-image: url('./img/i0.png');
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 50px;
+    height: 40px;
+}
+.i0phone{
+	background-position: 0px -40px;
+}
+
+
+
+
+
+
+.i1{}
+
+
+
+
+
+
+
+ico =================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*start ======================*/
+
+#h7_start_button .start{
+	display:inline-block;
+	position:fixed;
+	outline:none;
+	border-width:0px;
+	width:50px;
+	height:40px;
+	background-color:#e84c16;
+	background-image:url(./images/logo_m.png);
+	background-position:center;
+	z-index:709;
+	left:0px;
+	bottom:0px;
+	font-size:0px;
+}
+#h7_start_button .start:hover{
+	background-color:#ff5d25;
+}
+#h7_start_button .start:focus{
+	border-width:3px;
+	border-style:dotted;
+	border-color:#f00;				
+}
+@media all and (max-width: 700px){
+#h7_start_button .start{
+	top:0px;bottom: auto;
+}}
+
+
+
+
+
+
+#h7_start_data{
+	background:#5a463f;
+	height: 100%;
+	position:fixed;
+	z-index:708;
+	top: 0px;
+}
+@media all and (max-width: 700px){
+#h7_start_data{   width:100%;
+
+ }
+.h7_start_open{
+		display: flex;
+	flex-direction:  column  ;
+}
+ }
+
+
+
+
+.h7_start_close{
+	display:none;
+}
+
+
+
+
+
+#h7_start_l{
+
+	float:left;
+	overflow: hidden;
+    display:inline-block;
+	width:50px;
+	background:#5a463f;
+	color: #fff;
+	height: 100%;
+
+    z-index:108;
+    transition:width 0.2s;
+    transition-delay: 0.7s;
+}
+@media all and (max-width: 700px){
+#h7_start_l{
+	display:block;
+	overflow: auto;
+	width:auto;
+	height: auto;
+	min-height:40px;
+
+	padding-left:50px;
+
+}}
+#h7_start_l:hover{width:220px;}
+@media all and (max-width: 700px){
+#h7_start_l:hover{ width: initial; }
+}
+
+#h7_start_l button{
+		background-color:#5a463f;
+	background-image: url('./i/h7_ico.png');
+	background-position: 0px -40px;
+    background-repeat: no-repeat;
+	display:inline-block;
+	width:220px;
+	height:40px;
+	border-width:0px;
+	padding-left:60px;
+	text-align:left;
+	color:#fff;
+	font-weight: bolder;
+}
+@media all and (max-width: 700px){
+#h7_start_l button{width:50px;padding:0px;color:rgba(0,0,0,0); overflow:hidden; float:right;}
+}
+
+
+#h7_start_l button:hover{
+	background-color:#826e67;
+}
+
+
+#h7_start_l .select{
+	background-color:#998878;
+}
+
+
+
+#h7_start_r{
+	color:#fff;
+	overflow: scroll;
+    overflow-x: hidden;
+	width:270px;
+	background:#998878;
+	height: 100%;
+    display:inline-block;
+
+   // z-index:7;
+}
+@media all and (max-width: 700px){
+#h7_start_r{
+	//display:block;
+	//height:auto;
+	width:100%;
+}}
+
+#h7_start_r h1{
+	text-align:center;
+	font-size:22px;
+}
+#h7_start_r h2{
+	text-align:center;
+	font-size:14px;
+	margin:0px;
+	background:#25201c;
+}
+
+/*box*/ 
+
+
+#h7_start_box{
+	display:inline-block;
+	position:fixed;
+	left:0px;
+	top:0px;
+	height:100%;
+}
+
+
+#h7_start_box_menu{
+	display:inline-block;
+	background-color:#ff03bf;
+	width:50px;
+	height:100%;
+	float:left;
+	transition: width 0.2s ease 0.3s;;
+}
+#h7_start_box_menu:hover{
+	width:150px;
+}
+
+
+#h7_start_box_box{
+	display:inline-block;
+	background-color:#be00ff;
+	width:250px;
+	height:100%;
+
+}
+
+
+/*//start ======================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*report ==========================*/
+.h7report{
+	word-wrap: break-word;
+	display:block;
+	border-width: 1px 0px;
+	border-style: solid;
+	margin:0px;
+	padding:5px 10px;
+	font-size:11px;
+	color:#fff;
+	border-color: #3c2e29;
+	background: #5a463f;
+}
+.h7report p{
+	display:block;
+	background:#3c2e29;
+	margin:5px 0px 0px 0px;padding:5px 10px;
+}
+/*c60*/
+.h7report_L{background:#777;}
+//.h7report_V{background:#050;}
+.h7report_X{background:#700;}.h7report_X p{background:#4c0000;}
+
+/*//report ========================*/
+
+
+
+
+
+
+
+/*test ============================*/
+#h7test_id{
+	color:#fff;
+	background:#484c4e;
+}
+
+/*//test ==========================*/
+
+
+
+
+
+
+
+/*link ============================*/
+
+.h7_link_el{
+	outline: none;
+	text-decoration: none;
+	color:#fff;
+	display:inline-block;
+	width:160px;
+	height:100px;
+	background-position: center top;
+    background-repeat: no-repeat;
+    background-color:#111;
+margin:15px 10px;padding:0px;
+border-radius:4px 4px 0px 0px;
+}
+
+.h7_link_el p{
+	font-size:12px;
+	width:100%;
+	text-align:center;
+	background-color:#4e4e4e;
+	padding:0px;
+	margin:100px 0px 0px 0px;
+	border-radius:0px 0px 4px 4px;
+}
+
+
+
+/*//link ==========================*/
+
+
+
+
+
+
+
+
+
+/*window ===============================*/
+.h7_window{
+	position:absolute;
+	background-color:#ddd;
+	min-width:200px;
+	min-height:50px;
+	border-style:solid;
+	border-width:2px;
+	border-color:#5a463f;
+}
+@media all and (max-width: 700px){
+.h7_window{
+	display:block;
+	box-sizing: border-box;
+	height:auto;
+	width:100%;
+}}
+
+
+.h7_window .window_header{
+	cursor: move;
+	display:block;
+	background-color:#5a463f
+}
+@media all and (max-width: 700px){
+	.h7_window .window_header{
+		padding-top:36px;
+
+	}
+}
+
+.h7_window .window_header_text{
+	display:inline-block;
+
+padding:5px 20px;
+color:#fff;
+font-size:12px;
+}
+.h7_window .window_header_button{
+	display:inline-block;
+	float:right;
+}
+.h7_window .window_header_button button{
+	background-image:url(./i/bt.png);
+	height:24px;
+	width:40px;
+	border-width:0px;
+	background-color:rgba(0,0,0,0);
+}
+@media all and (max-width: 700px){
+.h7_window .window_header_button button{
+	width:50px;
+	height:40px;
+	background-color:#595;
+	position:fixed;
+	display:inline-block;
+	top:0px;
+	right:40px;
+}
+}
+
+
+
+
+.h7_window .window_header_button button:hover{
+background-color:#826e67;
+}
+
+.h7_window .window_header_button_hide{
+	background-position:0px -48px;
+}
+.h7_window .window_header_button_stretch{
+	background-position:0px -24px;
+}
+.h7_window .window_header_button_close{
+	background-position:0px 0px;
+}
+
+
+
+
+
+
+
+
+
+.h7_window .window_menu{
+	padding:0px;
+	margin:0px;
+	position:absolute;
+	//z-index:5;
+}
+@media all and (max-width: 700px){
+	.h7_window .window_menu{
+		position: static;
+		display:block;
+		background-color:#ddd;
+		width:100%;
+		/*overflow-y: scroll; 
+		overflow-x: auto;*/ 
+	}
+}
+
+.h7_window .window_menu input{display:none;}
+.h7_window .window_menu i{display:inline-block;margin:10px 10px;}
+.h7_window .window_menu ul{
+	width:40px;
+	height:40px;
+	display:block;
+	margin:0px 0px;padding:0px;
+	//background:#eee;
+	//border-radius:50px;}
+@media all and (max-width: 700px){
+	.h7_window .window_menu ul{
+		display:block;
+		width:inherit;
+		height:inherit;
+	}
+}	
+.h7_window .window_menu ul:hover{background:#fff;}
+.h7_window .window_menu ul li{
+
+	overflow: hidden;
+	display:inline-block;
+	
+	position:absolute;
+background:#fff;
+width:0px;
+text-align:center;
+padding:10px 0px 0px 0px;color:#000;
+font-size:18px;
+transition:width 0.2s;
+}
+@media all and (max-width: 700px){
+	.h7_window .window_menu ul li{
+		position:inherit;
+		overflow:auto;
+		width:100%;
+		display:block;
+	}
+}
+.h7_window .window_menu ul li button{
+	background:#fff;
+	font-size:0px;
+	display:block;width:100%; text-align:left;
+border-width:0px;padding:0px;
+    outline: none;
+transition:font-size 0.4s, padding 0.7s;
+    }
+@media all and (max-width: 700px){
+	.h7_window .window_menu ul li button{
+		display:inline-block;
+		font-size:12px;padding:10px 40px;
+	}
+}
+
+
+.h7_window .window_menu ul li button:active, 
+.h7_window .window_menu ul li button:focus{
+	background:#ffffff;
+}
+
+.h7_window .window_menu ul li button:hover{background:#5a463f;color:#fff;}
+
+.h7_window .window_menu ul:hover li{width:140px;}
+@media all and (max-width: 700px){
+	.h7_window .window_menu ul:hover li{width:inherit;}
+}
+
+.h7_window .window_menu ul:hover li button{ font-size:12px;padding:5px 10px; }
+@media all and (max-width: 700px){
+	.h7_window .window_menu ul:hover li button{ font-size:12px;padding:10px 40px; }
+}
+
+
+
+
+
+
+
+
+
+.h7_window .window_input{
+	display:block;
+	margin-left:40px;
+	padding: 5px 10px;
+	text-align:right;
+	
+}
+@media all and (max-width: 700px){
+	.h7_window .window_input{
+		margin-left:0px;
+	}
+}
+
+.h7_window .window_input input{
+	outline: none;
+	width:100%;
+	display:block;
+	border-width:0px;
+	background-color:#ddd;
+	font-size:11px;
+	margin:0px;padding:0px;
+}
+@media all and (max-width: 700px){
+	.h7_window .window_input input{
+		font-size:12px;
+	}
+}
+.h7_window .window_input button{
+	background-color:#ddd;
+	position:absolute;
+	margin:-14px -37px;
+	width:40px;
+	height:16px;
+	border-width:0px;
+	
+}
+.h7_window .window_input button:hover{
+	background-color:#fff;
+}
+
+.h7_window .window_body{
+	word-wrap: break-word;
+	background-color:#ddd;
+	margin-left:40px;
+	height:100%;
+	padding:5px 10px;
+	display: block;
+	box-sizing: border-box;
+
+	overflow: scroll;
+	overflow-x: hidden;
+
+}
+@media all and (max-width: 700px){
+	.h7_window .window_body{
+		margin-left:0px;
+	}
+}
+
+
+.h7_window .window_footer{
+	text-align:right;
+
+}
+
+/*//window ===============================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*iconki*/
+
+.ico {
+    white-space: nowrap;
+}
+.ico:before {
+    content: '';
+    background-image: url('./i/ico.png');
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-position: -10px -610px;
+}
+
+
+.ico-new:before {background-position: -130px -210px;}
+.ico-file:before {background-position: -10px -210px;}
+.ico-git:before {background-position: -290px -210px;}
+.ico-folder:before { background-position: 0 -40px; }
+.ico-download:before {background-position: -610px -90px;}
+.ico-pam:before {background-position: -10px -410px;}
+.ico-all:before {background-position: -10px -290px;}
+.ico-back:before { background-position: -130px -570px; }
+
+.ico-home:before {background-position: -610px -410px;}
+.ico-otch:before {background-position: -410px -130px;}
+.ico-settings:before {background-position: -210px -410px;}
+.ico-hid:before {background-position: -250px -370px;}
+
+.ico-search:before {background-position: -90px -410px;}
+.ico-mail:before {background-position: -50px -450px;}
+
+.ico-lock:before {background-position: -90px -490px;  position:absolute; top:5px;right:5px;}
+
+.ico-pam2:before {background-position: -170px -685px;}
+.ico-menu2:before {background-position: -130px -685px;}
+
+
+.ico-1:before {background-position: -10px -690px;}
+.ico-2:before {background-position: -90px -690px;}
+.ico-3:before {background-position: -50px -690px;}
+.ico-6:before {background-position: -50px -685px;}
+.ico-7:before {background-position: -130px -365px;}
+
+.ico-4:before {
+	background-position: -690px -50px;
+
+
+cursor: se-resize;
+display:none;
+position:absolute;
+margin:-20px 0px 0px -20px;
+
+}
+.h7_window:hover .ico-4:before{
+	display:inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*PAPKI I FAILI ==================================================*/
+
+.h7_window .wb_ftp1 .el{
+	overflow: hidden;
+	border-radius:5px;
+	display:inline-block;
+	width: 100px;
+	height: 45px;
+	margin: 8px;
+	}
+
+.h7_window .wb_ftp1 .bt{position:relative;float:right;top:-75px;transition: top 0.2s;}
+.h7_window .wb_ftp1 .bt:hover{background-color:#fff;}
+
+.h7_window .wb_ftp1 .el:hover .bt {top:-54px;}
+
+.h7_window .wb_ftp1 button{
+	outline: none;
+	float:left;
+	font-size:10px;
+	background:rgba(255,0,255,0);
+	border-width:0px;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+}
+.h7_window .wb_ftp1 button i{position:static;float:none;display:block;}
+.h7_window .wb_ftp1 .pam_class{top:-54px;}
+.h7_window .wb_ftp1 .pam_class:before{ background-position: -210px -685px;}
+
+
+/*bg2*/
+.h7_window .wb_ftp2 .el{
+	overflow: hidden;
+	//border-radius:5px;
+	display:block;
+	width:100%;
+	height:30px;
+	margin:2px auto;
+
+
+	}
+
+.h7_window .wb_ftp2 .bt{position:relative;float:right;top:-31px;transition: top 0.2s;
+;}
+.h7_window .wb_ftp2 .bt:hover{background-color:#fff;}
+
+
+.h7_window .wb_ftp2 button{
+	outline: none;
+padding-top:9px;
+	float:left;
+	text-align:left;
+	font-size:10px;
+	background:rgba(255,0,255,0);
+	border-width:0px;
+	width:100%;
+	height:100%;
+	cursor:pointer;
+}
+.h7_window .wb_ftp2 button i{
+	position:relative;
+	top:-5px;
+	vertical-align: middle;
+	margin-right:7px;
+	float: left;
+	display:inline-block;
+}
+.h7_window .wb_ftp2 .pam_class{}
+.h7_window .wb_ftp2 .pam_class:before{ background-position: -210px -685px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Прятать*/
+.hide{
+	display:none;
+}
