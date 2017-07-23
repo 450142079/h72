@@ -11,7 +11,8 @@ i1phone  - позиция с телефоном
 body {
  padding:0px;margin:0px;
  min-width: 300px;
- background-image:url(./../themes/default/background.jpg);
+ background-image:url(./images/bg3.jpg);//url(./../themes/default/background.jpg);
+ background-position: top center;
  background-color: #e1cfb9;
  color:#000;
  font-size:12px;
@@ -114,7 +115,7 @@ ico =================================*/
 	border-width:0px;
 	width:50px;
 	height:40px;
-	background-color:#e84c16;
+	background-color:#424a51;;//#e84c16;
 	background-image:url(./images/logo_m.png);
 	background-position:center;
 	z-index:709;
@@ -123,12 +124,12 @@ ico =================================*/
 	font-size:0px;
 }
 #h7_start_button .start:hover{
-	background-color:#ff5d25;
+	background-color:#232c3b;//#ff5d25;
 }
 #h7_start_button .start:focus{
 	border-width:3px;
 	border-style:dotted;
-	border-color:#f00;				
+	border-color:#232c3b;//#f00;				
 }
 @media all and (max-width: 700px){
 #h7_start_button .start{
@@ -271,11 +272,11 @@ ico =================================*/
 
 #h7_start_box_menu{
 	display:inline-block;
-	background-color:#ff03bf;
+	background-color: #424a51;
 	width:50px;
 	height:100%;
 	float:left;
-	transition: width 0.2s ease 0.3s;;
+	transition: width 0.2s ease 0.3s;
 }
 #h7_start_box_menu:hover{
 	width:150px;
@@ -284,7 +285,7 @@ ico =================================*/
 
 #h7_start_box_box{
 	display:inline-block;
-	background-color:#be00ff;
+	background-color:#777f8c;
 	width:250px;
 	height:100%;
 
@@ -296,17 +297,20 @@ ico =================================*/
 
 
 #h7_start_box_menu ul{
-	display:block;
-	margin:0px 0px 0px 0px;padding:0px 14px 0px 64px;
+	display:inline-block;
+	margin:0px 0px 0px 0px;padding:0px 0px 0px 55px;
 	height:40px;
-	background-color:#b8b8b8;
+	width:100px;
+	color:#fff;
 	font-size:12px;
 	list-style-type: none;
 }
 #h7_start_box_menu ul:hover{
-	background-color:#4e4040;
+	background-color:#232c3b;
 }
-
+#h7_start_box_menu ul li{
+	padding:12px 0px 0px 0px;
+}
 
 
 /*//start ======================*/
