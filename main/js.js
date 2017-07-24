@@ -1111,12 +1111,15 @@ h7.start.box_see=function(t){
 h7.menu.start=[];
 h7.menu.start[0]={"text":"Options","class":"i0 i0_options",};
 h7.menu.start[0].click=function(){alert('Нажали настройки');}
-h7.menu.start[1]={"text":"Files & folders","class":"i0 i0_file",};
+h7.menu.start[1]={"text":"Files & folders","class":"i0 i0_home",};
 h7.menu.start[1].click=function(){alert('Нажали файлы');}
 h7.menu.start[2]={"text":"Apps","class":"i0 i0_apps",};
 h7.menu.start[2].click=function(){ h7.start.box_see('<h1>Приложения</h1>'); }
 h7.menu.start[3]={"text":"Report","class":"i0 i0_report",};
 h7.menu.start[3].click=function(){ h7.start.box_see('<h1>Отчёты</h1>'); }
+h7.menu.start[4]={"text":"Search","class":"i0 i0_search",};
+h7.menu.start[4].click=function(){ h7.start.box_see('<h1>Search</h1>'); }
+
 
 
 
