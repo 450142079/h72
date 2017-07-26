@@ -724,19 +724,15 @@ class str
 extends true/false
 list []
 */
-h7.menu=function(NameMenu, id_out, arr_dop)
+h7.menu=function(NameMenu, n)
 {
-	if(!arr_dop)
-	{
-		arr_dop = '';
-	}
 	var s='';
 	for(len=h7.menu[NameMenu].length,i5=0;i5<len;i5++)
 	{
 		s+='<ul><i class="' + h7.menu[NameMenu][i5].class + '" ';
 		if(h7.menu[NameMenu][i5].click)
 		{
-			s+='onClick="h7.menu[\"' + NameMenu + '\"][' + i5 + '].click(' + arr_dop.n + ');" ';
+			s+='onClick="h7.menu[\"' + NameMenu + '\"][' + i5 + '].click(' + n + ');" ';
 		}
 		s+='></i>';
 		if(h7.menu[NameMenu][i5].text!=undefined)
@@ -753,7 +749,8 @@ h7.menu=function(NameMenu, id_out, arr_dop)
 		}
 		s+='</ul>';
 	}
-	document.getElementById(id_out).innerHTML=s; 
+	return s;
+	//document.getElementById(id_out).innerHTML=s; 
 }
 
 /*//menu============================================================*/
@@ -1099,7 +1096,7 @@ h7.start.box_clothes=function(){
 	document.getElementById('h7_start_box').innerHTML='<div id="h7_start_box_menu"></div><div id="h7_start_box_box"></div>';
 }
 h7.start.menu_see=function(){
-	h7.menu('start','h7_start_box_menu');
+	document.getElementById('h7_start_box_menu').innerHTML=h7.menu('start');
 }
 h7.start.box_see=function(t){
 	document.getElementById('h7_start_box_box').innerHTML=t;
@@ -1410,8 +1407,14 @@ h7.window={};
 
 
 
+
+//свернуть
 h7.window.hide=function(n){}
+
+//Растянуть
 h7.window.stretch=function(n){}
+
+//Закрыть
 h7.window.close=function(n){
 	h7.window.list[n].object.parentNode.removeChild(h7.window.list[n].object);
 	h7.window.list[n].status='close';
@@ -1426,16 +1429,73 @@ h7.window.close=function(n){
 
 
 
-//Основные функции шаблонов (start - после первого открытия окна)
+
+
+
+
+
+
+
+
+
+
+
+//Для дополнений к контенту
 h7.window.f={};
 
+//Кнопки закрыть, свернуть
+h7.window.f.header_button=function(n,s)
+{
+	var t='';
+	if(s!=1){
+		t+='<button class="i1 i1_hide" onclick="h7.window.hide(' + n + ')"></button>\
+		<button class="i1 i1_stretch" onclick="h7.window.stretch(' + n + ')"></button>';
+	}
+	return t + '<button class="i1 i1_close" onclick="h7.window.close(' + n + ')"></button>';
+}
 
 
-h7.window.f.ftp={};
-h7.window.f.ftp.start=function(n){
-	h7.see(n , '..');
 
 
+
+
+
+//Основные шаблоны (start - после первого открытия окна)
+h7.window.content={};
+/*
+title Заголовок
+header_button кнопки в заголовке
+line=[] массив линий с блоками
+меню
+содержимое
+что выполнять при старте
+*/
+
+
+h7.window.content.ftp={};
+h7.window.content.ftp.title=function(n){ return 'FTP ' + n; }
+h7.window.content.ftp.header_button=function(n){ return h7.window.f.header_button(n); }
+h7.window.content.ftp.line=[];
+h7.window.content.ftp.line[0]=function(n){
+	return '<input type="text" />';
+}
+h7.window.content.ftp.menu=function(n){ return h7.menu('ftp', n); }
+
+h7.menu.ftp=[];
+h7.menu.ftp[0]={"text":"Create","class":"i2 i2_create",};
+h7.menu.ftp[0].click=function(){ alert('Нажали Создать');}
+
+h7.window.content.ftp.content=function(){
+	return 'Страница не может быть загружена';
+}
+h7.window.content.ftp.start=function(n){
+	alert('Страницу заполнять пока что не буду.');
+}
+	
+	
+	
+	
+	
 
 h7.window.menu(n, '<ul onclick="h7.ftp.back(' + n + ')"><i class="ico ico-back"></i></ul>\
     <ul><i class="ico ico-new"></i><li>Создать<br/>\
@@ -1558,178 +1618,16 @@ h7.window.body=function(n,t){
 
 
 
-
-/*
-
-
-switch(mod){
-   case 'ftp':{
-
-if(txt=='Seven7'){txt='..';}
-	wind[n]['name'] ='FM w' + n;
-	
-    wind[n]['obj'].innerHTML='<h6  style=" cursor: move; " onmousedown="wind_move(' + n + ',event); return false;" >' + wind[n]['name'] + '<i onClick="wind_del(' + n + ')" class="ico ico-3"></i><i onClick="wind_size_full(' + n + ');" class="ico ico-2"></i><i onclick="wind_hid(' + n + ');b_pusk_hid();" class="ico ico-1"></i></h6>\
-<div class="see_bg_menu">\
-	<ul onclick="b_back(' + n + ')"><i class="ico ico-back"></i></ul>\
-    <ul><i class="ico ico-new"></i><li>Создать<br/>\
-	<button onClick="h7_new(document.getElementById(\'in_' + n + '\').value, \'f\');b_f5(' + n + ');">Файл</button>\
-    <button onClick="h7_new(document.getElementById(\'in_' + n + '\').value, \'h\');b_f5(' + n + ');">Папку</button>\
-	</li></ul>\
-	<ul><i class="ico ico-download"></i><li>Загрузить<br/>\
-		<input id="file_' + n + '" type="file" name="myfile" />\
-		<button onclick="b_upload(' + n + ')">Загрузить выбр</button>\
-    <button onClick="b_urlins7(' + n + ');">Загрузить с URL</button>\
-	</li></ul>\
-	<ul><i class="ico ico-pam"></i><li>Выделенное<br/>\
-    <button onClick="b_pusk_pam();pusk(1);">Смотреть</button>\
-	<button onClick="pam_copypast(' + n + ');b_f5(' + n + ');">Копировать сюда</button>\
-    <button onClick="pam_cutpast(' + n + ');b_f5(' + n + ');">Переместить сюда</button>\
-	<button onClick="pam_clear();b_f5(' + n + ');">Отменить</button>\
-	<button onClick="b_archive(' + n + ');">Архивировать</button>\
-    <button onClick="pam_del();b_f5(' + n + ');">Удалить</button>\
-    <button onClick="pam_mark(' + n + ', \'h\')">Выделить папки</button>\
-	<button onClick="pam_mark(' + n + ', \'f\')">Выделить файлы</button>\
-	<button onClick="pam_mark_all(' + n + ')">Выделить всё</button>\
-	<button onClick="pam_mark_all_not(' + n + ')">Отменить в папке</button>\
-    <button onClick="b_mail();"><img scr="./i/in.png" />Отправить на почту</button>\
-	</li></ul>\
-	<ul><i class="ico ico-all"></i><li>Прочее<br/>\
-	<button onclick="b_search_str(' + n + ')">Искать строку</button>\
-	<button onclick="b_desk_mark(' + n + ');">В закладки</button>\
-    <button onClick="wind_add(\'ftp\', document.getElementById(\'in_' + n +'\').value, 444,494,600,400);b_m();"><img scr="" />Дублировать окно</button>\
-	<button onClick="b_f5(' + n + ')">Обновить данные</button>\
-	<button onclick="b_back(' + n + ')">Перейти обратно</button>\
-	<button onclick="document.getElementById(\'see_' + n + '\').className=\'see_bg bg_2\'">Вид список</button>\
-	<button onclick="document.getElementById(\'see_' + n + '\').className=\'see_bg bg_1\'">Вид блоки</button>\
-	</li></ul>\
-</div>\
-<div class="bl_bg" id="bl_' + n + '" style="width:' + w + 'px;height:' + h + 'px;">\
-<i class="ico ico-5" onclick="b_f5(' + n + ')"></i>\
-<input id="in_' + n + '" type="text" value="' + txt + '" />\
-<div  class="see_bg bg_1" id="see_' + n + '"></div>\
-<i class="ico ico-4" onmousedown="wind_size(' + n + ',event); return false;"></i>\
-</div>'; 
-ajax_see(n,document.getElementById('in_' + n).value);
-
-
-
-
-break;}
-
-   case 'edit':{
-	   wind[n]['name'] ='Edit w' + n + ' ' + s2(txt);
-	   wind[n]['obj'].innerHTML='<h6  style=" cursor: move; " onmousedown="wind_move(' + n + ',event); return false;" >' + wind[n]['name'] + '<i onClick="wind_del(' + n + ')" class="ico ico-3"></i><i onClick="wind_size_full(' + n + ');" class="ico ico-2"></i><i onclick="wind_hid(' + n + ');b_pusk_hid();" class="ico ico-1"></i></h6>\
-	   <div class="see_bg_menu">\
-<ul><i class="ico ico-file"></i><li>Файл<br/>\
-  <button onClick="b_file_save(' + n + ')">Сохранить</button>\
-  <button onClick="b_file_save(' + n + ');wind_del(' + n + ');">Сохранить и выйти</button>\
-  <button onclick="ajax(\'weight~\' + document.getElementById(\'in_' + n + '\').value);b_m();">Размер</button>\
-</li></ul>\
-<ul><i class="ico ico-git"></i><li>Откат<br/>\
-	<button onClick="b_git_save(' + n + ')">Сохранить</button>\
-	<button onClick="b_git_see(' + n + ')">Список версий</button>\
-</li></ul>\
-<ul><i class="ico ico-all"></i><li>Прочее<br/>\
-<button onclick="b_desk_mark(' + n + ');">В закладки</button>\
-</li></ul>\
-</div>\
-<div class="bl_bg" id="bl_' + n + '" style="width:' + w + 'px;height:' + h + 'px;">\
-<input id="in_' + n + '" type="text" value="' + txt + '" />\
-<textarea class="see_bg" id="see_' + n + '" style="background:#333;" > </textarea>\
-<i class="ico ico-4" onmousedown="wind_size(' + n + ',event); return false;"></i>\
-</div>';
-
-break;}
-
-   case 'edit2':{
-	   wind[n]['name']='EDIT2 w' + n + ' ' + s2(txt);
-	   wind[n]['obj'].innerHTML='<h6  style=" cursor: move; " onmousedown="wind_move(' + n + ',event); return false;" >' + wind[n]['name'] + '<i onClick="wind_del(' + n + ')" class="ico ico-3"></i><i onClick="wind_size_full(' + n + ');edit_mm[' + n + '].resize();" class="ico ico-2"></i><i onclick="wind_hid(' + n + ');b_pusk_hid();" class="ico ico-1"></i></h6>\
-<div class="see_bg_menu">\
-<ul><i class="ico ico-file"></i><li>Файл<br/>\
-	<button onClick="b_file_save2(' + n + ')">Сохранить</button>\
-	<button onClick="b_file_save2(' + n + ');wind_del(' + n + ');">Сохранить и выйти</button>\
-	<button onclick="ajax(\'weight~\' + document.getElementById(\'in_' + n + '\').value);b_m();">Размер</button>\
-</li></ul>\
-<ul><i class="ico ico-git"></i><li>Откат<br/>\
-	<button onClick="b_git_save(' + n + ',\'edit2\')">Сохранить</button>\
-	<button onClick="b_git_see(' + n + ',\'edit2\')">Список версий</button>\
-</li></ul>\
-<ul><i class="ico ico-all"></i><li>Прочее<br/>\
-	<button onclick="b_desk_mark(' + n + ');">В закладки</button>\
-    <button onClick="edit_mm[' + n + '].resize();">Обновить размер</button>\
-	<button onClick="b_m(\'edit2_them\',0,' + n + ', event);">Тема</button>\
-	<button onClick="b_m(\'edit2_lang\',0,' + n + ', event);">Язык</button>\
-	<button onClick="b_m(\'edit2_fontsize\',0,' + n + ', event);">Размер шрифта</button>\
-</li></ul>\
-</div>\
-<div class="bl_bg" id="bl_' + n + '" style="width:' + w + 'px;height:' + h + 'px;">\
-<input id="in_' + n + '" type="text" value="' + txt + '" disabled />\
-<div id="see_' + n + '"  class="edit2_0" > </div>\
-<i class="ico ico-4" onmousedown="wind_size(' + n + ',event); return false;" onmouseup="edit_mm[' + n + '].resize();"></i>\
-</div>'; 
-
-break;}
-
-   case 'browser':{
-	   wind[n]['name']='Browser w' + n + ' ' + s2(txt);
-	   wind[n]['obj'].innerHTML='<h6  style=" cursor: move; " onmousedown="wind_move(' + n + ',event); return false;" >' + wind[n]['name'] + '<i onClick="wind_del(' + n + ')" class="ico ico-3"></i><i onClick="wind_size_full(' + n + ');" class="ico ico-2"></i><i onclick="wind_hid(' + n + ');b_pusk_hid();" class="ico ico-1"></i></h6>\
-	   <input id="in_' + n + '" type="text" value="' + txt + '" />\
-<button onClick="b_frame_go(' + n + ')"><img src="./i/gt.png" /></button>\
-<br/>\
-<iframe src="' + txt + '"; style="background:#eee;width:' + w + 'px;height:' + h + 'px;" id="see_' + n + '" class="see_bg" frameborder="0px" scrolling="yes">iframe</iframe>\
-<i class="ico ico-4" onmousedown="wind_size(' + n + ',event); return false;" ></i>\
-';
-
-
- break;}
-
-
-
-case 'mp3':{
-	wind[n]['name']='Music w' + n + ' ' + s2(txt);
-	wind[n]['obj'].innerHTML='<h6  style=" cursor: move; " onmousedown="wind_move(' + n + ',event); return false;" >' + wind[n]['name'] + '<i onClick="wind_del(' + n + ')" class="ico ico-3"></i><i onClick="wind_size_full(' + n + ');" class="ico ico-2"></i><i onclick="wind_hid(' + n + ');b_pusk_hid();" class="ico ico-1"></i></h6>\
-<audio controls="controls" autoplay="autoplay" loop="loop"><source src="' + txt + '" type="audio/mpeg"><a href="' + txt + '" target="_blanck">Скачать</a></audio><br/>';
-
-
- break;}
-
-
-  
-   case 'mail':{
-     wind[n]['name'] ='Mail w' + n;
-     wind[n]['obj'].innerHTML='<h6  style=" cursor: move; " onmousedown="wind_move(' + n + ',event); return false;" >' + wind[n]['name'] + '<i onClick="wind_del(' + n + ')" class="ico ico-3"></i><i onClick="wind_size_full(' + n + ');" class="ico ico-2"></i><i onclick="wind_hid(' + n + ');b_pusk_hid();" class="ico ico-1"></i></h6>\
-<div class="see_bg_menu">\
-<ul onclick="b_mail_go(' + n + ');"><i class="ico ico-mail"></i><li>Отправить</li></ul>\
-<ul onclick="b_pusk_pam();"><i class="ico ico-file"></i><li>Просмотреть прикрепленные файлы</li></ul>\
-</div>\
-<div class="bl_bg" id="bl_' + n + '" style="width:' + w + 'px;height:' + h + 'px;">\
-<input id="in_' + n + '" type="text" value="k5pr@ya.ru" />\
-<input id="in0_' + n + '" type="text" value="Seven7@' + window.location.hostname + '" />\
-<input id="in1_' + n + '" type="text" value="Тема" />\
-<textarea class="see_bg" id="see_' + n + '" style="background:#333;" ><h1 style="background:#999;color:#fff;">HAMSTER7</h1></textarea>\
-<i class="ico ico-4" onmousedown="wind_size(' + n + ',event); return false;"></i>\
-</div>';
-
-break;}
-
-
-
-   default:{
-    wind[n]['obj'].innerHTML='<h6 id="wind_' + n + '" style=" cursor: move; " onmousedown = "mouse_in(' + n + ');" onmouseup="mouse_out(' + n + ');" >Seven7<button onClick="wind_del(' + n + ')">x</button><button>o</button><button>-</button></h6>\
-<div style="background:#eee;width:' + w + 'px;height:' + h + 'px;">' + txt + '</div>';
-   }
-}
-
-b_pusk_hid();
-*/
-
-
-
-
+//Список окон
 h7.window.list=[];
-h7.window.light=function(){}
 
-h7.window.add=function(template , ar0json , x ,y ,w ,h, status){
+//добавить
+h7.window.add=function(content1 , x ,y ,w ,h, status)
+{
+	if(!h7.window.content[content1])
+	{
+		alert ('NOT h7.window.content.this');return false;
+	}
   if(!x){x=500;}
   if(!y){y=200;}
   if(!w){w=600;}
