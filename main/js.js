@@ -732,7 +732,7 @@ h7.menu=function(NameMenu, n)
 		s+='<ul><i class="' + h7.menu[NameMenu][i5].class + '" ';
 		if(h7.menu[NameMenu][i5].click)
 		{
-			s+='onClick="h7.menu[\"' + NameMenu + '\"][' + i5 + '].click(' + n + ');" ';
+			s+='onClick="h7.menu[\'' + NameMenu + '\'][' + i5 + '].click(' + n + ');" ';
 		}
 		s+='></i>';
 		if(h7.menu[NameMenu][i5].text!=undefined)
@@ -1109,7 +1109,7 @@ h7.menu.start=[];
 h7.menu.start[0]={"text":"Options","class":"i0 i0_options",};
 h7.menu.start[0].click=function(){alert('Нажали настройки');}
 h7.menu.start[1]={"text":"Files & folders","class":"i0 i0_home",};
-h7.menu.start[1].click=function(){alert('Нажали файлы');}
+h7.menu.start[1].click=function(){ h7.window.add('ftp'); }
 h7.menu.start[2]={"text":"Apps","class":"i0 i0_apps",};
 h7.menu.start[2].click=function(){ h7.start.box_see('<h1>Приложения</h1>'); }
 h7.menu.start[3]={"text":"Report","class":"i0 i0_report",};
@@ -1446,12 +1446,11 @@ h7.window.f={};
 //Кнопки закрыть, свернуть
 h7.window.f.header_button=function(n,s)
 {
-	var t='';
+	var t='<div class="button" id="window_' + n + '_header_button">';
 	if(s!=1){
-		t+='<button class="i1 i1_hide" onclick="h7.window.hide(' + n + ')"></button>\
-		<button class="i1 i1_stretch" onclick="h7.window.stretch(' + n + ')"></button>';
+		t+='<button class="i1 i1_hide" onclick="h7.window.hide(' + n + ')"></button><button class="i1 i1_stretch" onclick="h7.window.stretch(' + n + ')"></button>';
 	}
-	return t + '<button class="i1 i1_close" onclick="h7.window.close(' + n + ')"></button>';
+	return t + '<button class="i1 i1_close" onclick="h7.window.close(' + n + ')"></button></div>';
 }
 
 
@@ -1477,7 +1476,11 @@ h7.window.content.ftp.title=function(n){ return 'FTP ' + n; }
 h7.window.content.ftp.header_button=function(n){ return h7.window.f.header_button(n); }
 h7.window.content.ftp.line=[];
 h7.window.content.ftp.line[0]=function(n){
-	return '<input type="text" />';
+	return '<button class="i1 i1_back" onClick=""></button>\
+	<div class="button">\
+	<button class="i1 i1_go" onClick=""></button><button class="i1 i1_search" onClick=""></button><button class="i1 i1_display" onClick=""></button>\
+	</div>\
+	<input class="input_search" type="text" />';
 }
 h7.window.content.ftp.menu=function(n){ return h7.menu('ftp', n); }
 
@@ -1497,44 +1500,6 @@ h7.window.content.ftp.start=function(n){
 	
 	
 
-h7.window.menu(n, '<ul onclick="h7.ftp.back(' + n + ')"><i class="ico ico-back"></i></ul>\
-    <ul><i class="ico ico-new"></i><li>Создать<br/>\
-		<button onClick="h7.create.file(h7.window.list[' + n + '].input_text);h7.ftp.f5(' + n + ');">Файл</button>\
-    	<button onClick="h7.create.directory(h7.window.list[' + n + '].input_text);h7.ftp.f5(' + n + ');">Папку</button>\
-    	<button onClick="alert(7);">Страницу</button>\
-	</li></ul>\
-	<ul><i class="ico ico-download"></i><li>Загрузить<br/>\
-		<input id="h7_цштвщfile_' + n + '" type="file" name="myfile" />\
-		<button onclick="h7_file_' + n + '.click();">Выбрать файл</button>\
-		<button onclick="b_upload(' + n + ')">Загрузить выбр</button>\
-    <button onClick="b_urlins7(' + n + ');">Загрузить с URL</button>\
-	</li></ul>\
-	<ul><i class="ico ico-pam"></i><li>Выделенное<br/>\
-    <button onClick="b_pusk_pam();pusk(1);">Смотреть</button>\
-	<button onClick="pam_copypast(' + n + ');b_f5(' + n + ');">Копировать сюда</button>\
-    <button onClick="pam_cutpast(' + n + ');b_f5(' + n + ');">Переместить сюда</button>\
-	<button onClick="pam_clear();b_f5(' + n + ');">Отменить</button>\
-	<button onClick="b_archive(' + n + ');">Архивировать</button>\
-    <button onClick="pam_del();b_f5(' + n + ');">Удалить</button>\
-    <button onClick="pam_mark(' + n + ', \'h\')">Выделить папки</button>\
-	<button onClick="pam_mark(' + n + ', \'f\')">Выделить файлы</button>\
-	<button onClick="pam_mark_all(' + n + ')">Выделить всё</button>\
-	<button onClick="pam_mark_all_not(' + n + ')">Отменить в папке</button>\
-    <button onClick="b_mail();"><img scr="./i/in.png" />Отправить на почту</button>\
-	</li></ul>\
-	<ul><i class="ico ico-all"></i><li>Прочее<br/>\
-	<button onclick="b_search_str(' + n + ')">Искать строку</button>\
-	<button onclick="b_desk_mark(' + n + ');">В закладки</button>\
-    <button onClick="wind_add(\'ftp\', document.getElementById(\'in_' + n +'\').value, 444,494,600,400);b_m();"><img scr="" />Дублировать окно</button>\
-	<button onClick="b_f5(' + n + ')">Обновить данные</button>\
-	<button onclick="b_back(' + n + ')">Перейти обратно</button>\
-	<button onclick="document.getElementById(\'see_' + n + '\').className=\'see_bg bg_2\'">Вид список</button>\
-	<button onclick="document.getElementById(\'see_' + n + '\').className=\'see_bg bg_1\'">Вид блоки</button>\
-	</li></ul>');
-
-
-
-}
 
 
 
@@ -1542,12 +1507,6 @@ h7.window.menu(n, '<ul onclick="h7.ftp.back(' + n + ')"><i class="ico ico-back">
 
 
 
-
-
-
-//Темы
-h7.window.thems={};
-h7.window.thems.ftp=1;
 
 
 
@@ -1628,69 +1587,58 @@ h7.window.add=function(content1 , x ,y ,w ,h, status)
 	{
 		alert ('NOT h7.window.content.this');return false;
 	}
-  if(!x){x=500;}
-  if(!y){y=200;}
-  if(!w){w=600;}
-  if(!h){h=500;}
+	if(!x){x=500;}
+	if(!y){y=200;}
+	if(!w){w=600;}
+	if(!h){h=500;}
   
-  
-  if(!template){ mod='ftp'; }
-  if(!ar0json){ ar0json={}; }
-  if(!status){ status='open'; }
+	if(!status){ status='open'; }
 
-  var ln = h7.window.list.length;
-  h7.window.list[ln]={};
-  h7.window.list[ln].id=ln;
-  h7.window.list[ln].status=status;
-  h7.window.list[ln].template=template;
-  h7.window.list[ln].object=document.createElement('div');
-  h7.window.list[ln].input_text=ar0json.input_text;
+	
+	var ln = h7.window.list.length;
+	h7.window.list[ln]={};
+	h7.window.list[ln].id=ln;
+	h7.window.list[ln].status=status;
+	h7.window.list[ln].content=content1;
+	h7.window.list[ln].object=document.createElement('div');
 
-  h7.window.list[ln].location={};
-  h7.window.list[ln].location.x=x;
-  h7.window.list[ln].location.y=y;
+	h7.window.list[ln].location={};
+	h7.window.list[ln].location.x=x;
+	h7.window.list[ln].location.y=y;
 
-  h7.window.list[ln].size={};
-  h7.window.list[ln].size.w=w;
-  h7.window.list[ln].size.h=h;
-  h7.window.list[ln].size.big=false;
+	h7.window.list[ln].size={};
+	h7.window.list[ln].size.w=w;
+	h7.window.list[ln].size.h=h;
+	h7.window.list[ln].size.big=false;
 
 
-h7.window.list[ln].object.className='h7_window';
-
-if(!h7.options.phone){
-	h7.window.list[ln].object.style.cssText = 'left:' + x + 'px;top:' + y + 'px;';
-	h7.window.list[ln].object.onmousedown=function(){ h7.window.light(ln); };
-}
-
-h7.window.list[ln].object.innerHTML=h7.window.templates.window(ln, template, ar0json, w, h);
-//document.getElementById('window_' + ln + '_body').style.cssText = 'width:' + w + 'px;height:' + h + 'px;';
-
-
-
- /*Создаем*/ 
- document.body.appendChild(h7.window.list[ln].object);
- h7.window.light(ln);
- h7.window.f[template].start(ln);
-return ln;
-
-
-
-
-//поле для списка окон
-//h7.desktop.add('<div id="h7_windows_list"></div>');
-h7.window.show={};
-h7.window.show.list=function(){
-	var str='';
-	for(i3=0;i3<h7.window.list.length;i3++){
-		if(1){
-			str+='';
-		}
+	h7.window.list[ln].object.className='h7_window';
+	if(!h7.options.phone){
+		h7.window.list[ln].object.style.cssText = 'left:' + x + 'px;top:' + y + 'px;';
+	//	h7.window.list[ln].object.onmousedown=function(){ h7.window.light(ln); };
 	}
-}
+
+	var t_out='<div class="header" id="window_' + ln + '_header" onmousedown="h7.window.move(' + ln + ',event); return false;">' +
+	'<div class="title" id="window_' + ln + '_title">' + h7.window.content[content1].title(ln) + '</div>' + h7.window.content[content1].header_button(ln,1) + '</div>';
+	
+	for(kol9=h7.window.content[content1].line.length,i9=0;i9<kol9;i9++)
+	{
+		t_out+='<div class="line" id="window_' + ln + '_line_' + i9 + '">' + h7.window.content[content1].line[i9](ln) + '</div>';
+	}
+	t_out+='<div class="box">\
+	<div id="windows_' + ln + '_menu" class="menu">' + h7.menu(content1,ln) + '</div>\
+	<div id="windows_' + ln + '_content" class="content">' + h7.window.content[content1].content() + '</div>\
+	</div>';
 
 
+	h7.window.list[ln].object.innerHTML=t_out;
 
+	
+	/*Создаем*/ 
+	document.getElementById('h7_windows').appendChild(h7.window.list[ln].object);
+
+	h7.window.content[content1].start(ln);
+	return ln;
 
 }
 
