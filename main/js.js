@@ -1476,11 +1476,11 @@ h7.window.content.ftp.title=function(n){ return 'FTP ' + n; }
 h7.window.content.ftp.header_button=function(n){ return h7.window.f.header_button(n); }
 h7.window.content.ftp.line=[];
 h7.window.content.ftp.line[0]=function(n){
-	return '<button class="i1 i1_back" onClick=""></button>\
+	return '<input class="input_search" type="text" />\
+	<button class="i1 i1_back" onClick=""></button>\
 	<div class="button">\
 	<button class="i1 i1_go" onClick=""></button><button class="i1 i1_search" onClick=""></button><button class="i1 i1_display" onClick=""></button>\
-	</div>\
-	<input class="input_search" type="text" />';
+	</div>';
 }
 h7.window.content.ftp.menu=function(n){ return h7.menu('ftp', n); }
 
