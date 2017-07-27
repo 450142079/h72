@@ -391,7 +391,7 @@ ico =================================*/
 
 
 .i1_back{  background-position: 0px -24px; }
-.h7_window .i1_back{ float:left; display:inline-block; }
+.h7_window .i1_back{ float:left;}
 
 /*//icons=====================================*/
 
@@ -524,6 +524,7 @@ background-color:#232c3b;
 	width:40px;
 	cursor: pointer;
 	display: inline-block;
+	position:relative;
 }
 .h7_window .line button:hover{
 	background-color:#232c3b;
@@ -538,9 +539,10 @@ background-color:#232c3b;
 	padding:0px;margin:0px;
 	outline: none;
 	color:#fff;
-	display: inline-block;
+	display: block;
 	padding:0px 125px 0px 45px;
 	font-size:11px;
+	position:absolute;
 }
 
 .h7_window .line .input_search:hover{
