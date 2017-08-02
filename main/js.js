@@ -1116,6 +1116,8 @@ h7.menu.start[3]={"text":"Report","class":"i0 i0_report",};
 h7.menu.start[3].click=function(){ h7.start.box_see('<h1>Отчёты</h1>'); }
 h7.menu.start[4]={"text":"Search","class":"i0 i0_search",};
 h7.menu.start[4].click=function(){ h7.start.box_see('<h1>Search</h1>'); }
+h7.menu.start[5]={"text":"Favorites","class":"i0 i0_favorites",};
+h7.menu.start[5].click=function(){ h7.start.box_see('<h1>Favorites</h1>'); }
 
 
 
@@ -1488,15 +1490,14 @@ h7.menu.ftp=[];
 h7.menu.ftp[0]={"text":"Create","class":"i1 i1_create",};
 h7.menu.ftp[0].click=function(){ alert('Нажали Создать');}
 
-h7.menu.ftp[1]={"text":"Create","class":"i1 i1_create",};
-h7.menu.ftp[1].click=function(){ alert('Нажали Создать');}
+h7.menu.ftp[1]={"text":"download","class":"i1 i1_download",};
+h7.menu.ftp[1].click=function(){ alert('Нажали Загрузить');}
 
-h7.menu.ftp[2]={"text":"Create","class":"i1 i1_create",};
-h7.menu.ftp[2].click=function(){ alert('Нажали Создать');}
+h7.menu.ftp[2]={"text":"Marked","class":"i1 i1_marked",};
+h7.menu.ftp[2].click=function(){ alert('Нажали Отмеченные');}
 
-h7.menu.ftp[3]={"text":"Create","class":"i1 i1_create",};
-h7.menu.ftp[3].click=function(){ alert('Нажали Создать');}
-
+h7.menu.ftp[3]={"text":"Favorites","class":"i1 i1_favorites",};
+h7.menu.ftp[3].click=function(){ alert('Нажали избранные');}
 
 
 
