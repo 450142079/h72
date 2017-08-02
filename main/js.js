@@ -1479,14 +1479,26 @@ h7.window.content.ftp.line[0]=function(n){
 	return '<input class="input_search" type="text" />\
 	<button class="i1 i1_back" onClick=""></button>\
 	<div class="button">\
-	<button class="i1 i1_go" onClick=""></button><button class="i1 i1_search" onClick=""></button><button class="i1 i1_display" onClick=""></button>\
+	<button class="i1 i1_go" onClick=""></button><button class="i1 i1_search" onClick=""></button><button class="i1 i1_menu" onClick=""></button>\
 	</div>';
 }
 h7.window.content.ftp.menu=function(n){ return h7.menu('ftp', n); }
 
 h7.menu.ftp=[];
-h7.menu.ftp[0]={"text":"Create","class":"i2 i2_create",};
+h7.menu.ftp[0]={"text":"Create","class":"i1 i1_create",};
 h7.menu.ftp[0].click=function(){ alert('Нажали Создать');}
+
+h7.menu.ftp[1]={"text":"Create","class":"i1 i1_create",};
+h7.menu.ftp[1].click=function(){ alert('Нажали Создать');}
+
+h7.menu.ftp[2]={"text":"Create","class":"i1 i1_create",};
+h7.menu.ftp[2].click=function(){ alert('Нажали Создать');}
+
+h7.menu.ftp[3]={"text":"Create","class":"i1 i1_create",};
+h7.menu.ftp[3].click=function(){ alert('Нажали Создать');}
+
+
+
 
 h7.window.content.ftp.content=function(){
 	return 'Страница не может быть загружена';

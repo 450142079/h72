@@ -395,7 +395,14 @@ ico =================================*/
 
 .i1_go{background-position: -105px -263px;}
 .i1_search{background-position: -53px -63px;}
+.i1_menu{background-position: -55px -13px;}
+
+
 .i1_display{background-position: -104px -63px;}
+
+.i1_create{background-position: -56px -305px;}
+
+
 
 /*//icons=====================================*/
 
@@ -456,7 +463,11 @@ ico =================================*/
 .h7_window .header{
 	cursor: move;
 	display:block;
-	background-color:#424a51
+	background-color:#424a51;
+
+	border-style:solid;
+	border-width:0px 0px 2px 0px;
+	border-color:#424a51;
 }
 @media all and (max-width: 700px){
 	.h7_window .window_header{
@@ -520,6 +531,10 @@ background-color:#232c3b;
 	background-color:#ec1313;	
 	display:block;
 	height:24px;
+
+	border-style:solid;
+	border-width:0px 0px 2px 0px;
+	border-color:#424a51;
 }
 
 .h7_window .line button{
@@ -577,14 +592,37 @@ background-color:#232c3b;
 
 
 
-.h7_window .window_menu{
+
+
+
+.h7_window .box{
+	display:block;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*menu*/
+
+
+.h7_window .box .menu{
 	padding:0px;
 	margin:0px;
 	position:absolute;
-	//z-index:5;
+	background-color:#777f8c;
+	//height: 100%;
+	box-sizing: border-box;
 }
 @media all and (max-width: 700px){
-	.h7_window .window_menu{
+	.h7_window .bbox .menu{
 		position: static;
 		display:block;
 		background-color:#ddd;
@@ -594,9 +632,10 @@ background-color:#232c3b;
 	}
 }
 
-.h7_window .window_menu input{display:none;}
-.h7_window .window_menu i{display:inline-block;margin:10px 10px;}
-.h7_window .window_menu ul{
+.h7_window .box .menu input{display:none;}
+
+
+.h7_window .box .menu ul{
 	width:40px;
 	height:40px;
 	display:block;
@@ -610,8 +649,22 @@ background-color:#232c3b;
 		height:inherit;
 	}
 }	
-.h7_window .window_menu ul:hover{background:#fff;}
-.h7_window .window_menu ul li{
+.h7_window .box .menu ul:hover{background:#fff;}
+.h7_window .box .menu ul i{
+	display:inline-block;margin:0px;
+	width:40px;height:40px;
+	background-color:#777f8c;
+	}
+
+.h7_window .box .menu ul i:hover{
+	display:inline-block;margin:0px;
+	width:40px;height:40px;
+	background-color:#232c3b;
+	}
+
+
+	
+.h7_window .box .menu ul li{
 
 	overflow: hidden;
 	display:inline-block;
@@ -625,14 +678,14 @@ font-size:18px;
 transition:width 0.2s;
 }
 @media all and (max-width: 700px){
-	.h7_window .window_menu ul li{
+	.h7_window .box .menu ul li{
 		position:inherit;
 		overflow:auto;
 		width:100%;
 		display:block;
 	}
 }
-.h7_window .window_menu ul li button{
+.h7_window .box .menu ul li button{
 	background:#fff;
 	font-size:0px;
 	display:block;width:100%; text-align:left;
@@ -641,28 +694,28 @@ border-width:0px;padding:0px;
 transition:font-size 0.4s, padding 0.7s;
     }
 @media all and (max-width: 700px){
-	.h7_window .window_menu ul li button{
+	.h7_window .box .menu ul li button{
 		display:inline-block;
 		font-size:12px;padding:10px 40px;
 	}
 }
 
 
-.h7_window .window_menu ul li button:active, 
-.h7_window .window_menu ul li button:focus{
+.h7_window .box .menu ul li button:active, 
+.h7_window .box .menu ul li button:focus{
 	background:#ffffff;
 }
 
-.h7_window .window_menu ul li button:hover{background:#5a463f;color:#fff;}
+.h7_window .box .menu ul li button:hover{background:#5a463f;color:#fff;}
 
 .h7_window .window_menu ul:hover li{width:140px;}
 @media all and (max-width: 700px){
-	.h7_window .window_menu ul:hover li{width:inherit;}
+	.h7_window .box .menu ul:hover li{width:inherit;}
 }
 
-.h7_window .window_menu ul:hover li button{ font-size:12px;padding:5px 10px; }
+.h7_window .box .menu ul:hover li button{ font-size:12px;padding:5px 10px; }
 @media all and (max-width: 700px){
-	.h7_window .window_menu ul:hover li button{ font-size:12px;padding:10px 40px; }
+	.h7_window .box .menu ul:hover li button{ font-size:12px;padding:10px 40px; }
 }
 
 
@@ -673,74 +726,17 @@ transition:font-size 0.4s, padding 0.7s;
 
 
 
-.h7_window .window_input{
+
+
+
+/*content*/
+
+.h7_window .box .content{
 	display:block;
-	margin-left:40px;
-	padding: 5px 10px;
-	text-align:right;
-	
-}
-@media all and (max-width: 700px){
-	.h7_window .window_input{
-		margin-left:0px;
-	}
-}
-
-.h7_window .window_input input{
-	outline: none;
-	width:100%;
-	display:block;
-	border-width:0px;
+	min-height:250px;
 	background-color:#ddd;
-	font-size:11px;
-	margin:0px;padding:0px;
+	padding:3px 5px 3px 45px
 }
-@media all and (max-width: 700px){
-	.h7_window .window_input input{
-		font-size:12px;
-	}
-}
-.h7_window .window_input button{
-	background-color:#ddd;
-	position:absolute;
-	margin:-14px -37px;
-	width:40px;
-	height:16px;
-	border-width:0px;
-	
-}
-.h7_window .window_input button:hover{
-	background-color:#fff;
-}
-
-.h7_window .window_body{
-	word-wrap: break-word;
-	background-color:#ddd;
-	margin-left:40px;
-	height:100%;
-	padding:5px 10px;
-	display: block;
-	box-sizing: border-box;
-
-	overflow: scroll;
-	overflow-x: hidden;
-
-}
-@media all and (max-width: 700px){
-	.h7_window .window_body{
-		margin-left:0px;
-	}
-}
-
-
-.h7_window .window_footer{
-	text-align:right;
-
-}
-
-
-
-
 
 
 
