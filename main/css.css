@@ -383,15 +383,19 @@ ico =================================*/
     display: inline-block;
 }
  
-.i1_hide{ background-position:0px -48px; }
-.i1_stretch{ background-position: 0px -24px;}
-.i1_close{ background-position:0px -0px; }
+.i1_hide{background-position: -105px -13px;}
+.i1_stretch{background-position: -154px -13px;}
+.i1_close{background-position: -204px -13px;}
 
 
 
 
-.i1_back{  background-position: 0px -24px; }
+.i1_back{background-position: -155px -263px;}
 .h7_window .i1_back{ float:left;}
+
+.i1_go{background-position: -105px -263px;}
+.i1_search{background-position: -53px -63px;}
+.i1_display{background-position: -104px -63px;}
 
 /*//icons=====================================*/
 
