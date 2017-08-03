@@ -1119,7 +1119,8 @@ h7.menu.start[4].click=function(){ h7.start.box_see('<h1>Search</h1>'); }
 h7.menu.start[5]={"text":"Favorites","class":"i0 i0_favorites",};
 h7.menu.start[5].click=function(){ h7.start.box_see('<h1>Favorites</h1>'); }
 
-
+h7.menu.start[6]={"text":"Help","class":"i0 i0_help",};
+h7.menu.start[6].click=function(){ h7.start.box_see('<h1>Favorites</h1>'); }
 
 
 
