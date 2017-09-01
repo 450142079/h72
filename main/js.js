@@ -1526,7 +1526,7 @@ h7.window.content.ftp.start=function(n){
 	
 h7.window.content.form={};
 h7.window.content.form.title=function(n){ return 'Form'; }	
-h7.window.content.form.header_button=function(n){ return h7.window.f.header_button(n); }	
+h7.window.content.form.header_button=function(n){ return h7.window.f.header_button(n,1); }	
 
 
 
@@ -1575,24 +1575,28 @@ h7.window.templates.header_bottom=function(n){
 
 
 
+
 //Заполнение после создания
-h7.window.header_text=function(n,t){
-	document.getElementById('window_' + n + '_header_text').innerHTML=t; 
+h7.window.setTitle=function(n,t){
+	document.getElementById('window_' + n + '_title').innerHTML=t; 
 }
-h7.window.menu=function(n,t){
+h7.window.setMenu=function(n,t){
 	document.getElementById('window_' + n + '_menu').innerHTML=t; 
 }
-h7.window.input=function(n,t){
+h7.window.setInput=function(n,t){
 	document.getElementById('window_' + n + '_input').innerHTML=t; 
 }
-h7.window.input_text=function(n,t){
+h7.window.setInputText=function(n,t){
 	document.getElementById('window_' + n + '_input_text').value=t; 
 	h7.window.list[n].input_text=t;
 }
-h7.window.body=function(n,t){
+h7.window.setBody=function(n,t){
 	document.getElementById('window_' + n + '_body').innerHTML=t;  
 }
-
+h7.window.setContent=function(n,t){
+	h7.cl(n);h7.cl(t);
+	document.getElementById('window_' + n + '_content').innerHTML = t;  
+}
 
 
 
@@ -1661,10 +1665,10 @@ h7.window.add=function(content1 , x ,y ,w ,h, status)
 	t_out+='<div class="box">';
 	if(h7.window.content[content1].menu)
 	{
-		t_out+=	'<div id="windows_' + ln + '_menu" class="menu">' + h7.menu(content1,ln) + '</div>\
-		<div id="windows_' + ln + '_content" class="contentm"></div>';
+		t_out+=	'<div id="window_' + ln + '_menu" class="menu">' + h7.menu(content1,ln) + '</div>\
+		<div id="window_' + ln + '_content" class="contentm"></div>';
 	}else{
-		t_out+=	'<div id="windows_' + ln + '_content" class="content"></div>';
+		t_out+=	'<div id="window_' + ln + '_content" class="content"></div>';
 	}
 	t_out+='</div>';
 
@@ -1745,7 +1749,7 @@ if(!h7.options.phone){
 
 
 
-
+//Изменяем размер
 h7.window.size=function(n, e){
 
 	h7.window.list[n].size.big=false;
@@ -2082,18 +2086,25 @@ h7.cookie.delete=function(cid){
 /*Формы вид ============================================*/
 h7.form={};
 
-
-h7.form.alert=function(str_eval_y, str_html, button_y_text)
+//h7.form.alert('Error','Ошибка класическая', 'Хорошо', 'alert(\'HI\');')
+h7.form.alert=function(title, str_html, button_y_text, str_eval_y)
 {
-	h7.window.add('form', 100, 100, 550, 200);
+	var ln=h7.window.add('form', 500, 200, 550, 200);
+	h7.window.setContent(ln, str_html + '<div class="form1"><button onClick="h7.window.close(' + ln + ');' + str_eval_y + '">' + button_y_text + '</button></div>');
+	h7.window.setTitle(ln, title);
 }
-h7.form.confirm=function(str_eval_y, str_eval_n, str_html, button_y_text, button_n_text)
+//h7.form.confirm('Опасно!', 'Форматировать всю систему?', 'полное форматирование', 'h7.form.alert(\'Успешно\',\'Удаление успешно\', \'пипец..\')', 'отменить удаление');
+h7.form.confirm=function(title, str_html, button_y_text, str_eval_y, button_n_text, str_eval_n)
 {
-	h7.window.add('form');
+	var ln=h7.window.add('form', 500, 200, 550, 200);
+	h7.window.setContent(ln, str_html + '<div class="form1"><button onClick="h7.window.close(' + ln + ');' + str_eval_n + '">' + button_n_text + '</button><button onClick="h7.window.close(' + ln + ');' + str_eval_y + '">' + button_y_text + '</button></div>');
+	h7.window.setTitle(ln, title);
 }
-h7.form.prompt=function(function1, str_html, button_y_text, button_n_text, inpt)
+h7.form.prompt=function(title, str_html, button_y_text, str_eval_y)
 {
-	h7.window.add('form');
+	var ln=h7.window.add('form', 500, 200, 550, 200);
+	h7.window.setContent(ln, str_html + '<div class="form1"><button onClick="h7.window.close(' + ln + ');' + str_eval_y + '">' + button_y_text + '</button></div>');
+	h7.window.setTitle(ln, title);
 }
 
 

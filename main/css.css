@@ -612,8 +612,26 @@ background-color:#232c3b;
 
 
 
-
-
+/*forms*/
+.h7_window .box .form1{
+	background-color:#777f8c;
+	text-align:right;
+	display:block;
+	vertical-align: bottom;
+	padding:7px;
+}
+.h7_window .box .form1 button{
+	background-color:#424a51;
+	border-width:0px;
+	color:#fff;
+	padding:7px 17px;
+	font-size:14px;
+	margin:0px 0px 0px 7px;
+}
+.h7_window .box .form1 button:hover{
+	background-color:#ddd;
+	color:#000;
+}
 
 
 
