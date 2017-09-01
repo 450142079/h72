@@ -744,11 +744,17 @@ transition:font-size 0.4s, padding 0.7s;
 	display:block;
 	min-height:250px;
 	background-color:#ddd;
-	padding:3px 5px 3px 45px;
-	box-shadow: inset 40px 0px 0px #777f8c; 
+	padding:3px 5px 3px 5px;
 }
 
 
+.h7_window .box .contentm{
+	display:block;
+	min-height:250px;
+	background-color:#ddd;
+	padding:3px 5px 3px 45px;
+	box-shadow: inset 40px 0px 0px #777f8c; 
+}
 
 
 

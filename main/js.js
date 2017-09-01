@@ -727,28 +727,31 @@ list []
 h7.menu=function(NameMenu, n)
 {
 	var s='';
-	for(len=h7.menu[NameMenu].length,i5=0;i5<len;i5++)
-	{
-		s+='<ul><i class="' + h7.menu[NameMenu][i5].class + '" ';
-		if(h7.menu[NameMenu][i5].click)
+	//if(typeof (h7.menu[NameMenu]) === "array")
+	//{
+		for(len=h7.menu[NameMenu].length,i5=0;i5<len;i5++)
 		{
-			s+='onClick="h7.menu[\'' + NameMenu + '\'][' + i5 + '].click(' + n + ');" ';
-		}
-		s+='></i>';
-		if(h7.menu[NameMenu][i5].text!=undefined)
-		{
-			s+='<li><b>' + h7.lang(h7.menu[NameMenu][i5].text) + '</b>';
-			if(h7.menu[NameMenu][i5].extends)
+			s+='<ul><i class="' + h7.menu[NameMenu][i5].class + '" ';
+			if(h7.menu[NameMenu][i5].click)
 			{
-				for(len2=h7.menu[NameMenu][i5].list.length,i6=0;i6<len2;i6++){
-					s+='<button onClick="h7.menu[\"' + NameMenu + '\"][' + i5 + '].list[' + i6 + 
-					'].click(' + n + ')">' + h7.lang(h7.menu[NameMenu][i5].list[i6].text) + '</button>';
-				}
+				s+='onClick="h7.menu[\'' + NameMenu + '\'][' + i5 + '].click(' + n + ');" ';
 			}
-			s+='</li>';
+			s+='></i>';
+			if(h7.menu[NameMenu][i5].text!=undefined)
+			{
+				s+='<li><b>' + h7.lang(h7.menu[NameMenu][i5].text) + '</b>';
+				if(h7.menu[NameMenu][i5].extends)
+				{
+					for(len2=h7.menu[NameMenu][i5].list.length,i6=0;i6<len2;i6++){
+						s+='<button onClick="h7.menu[\"' + NameMenu + '\"][' + i5 + '].list[' + i6 + 
+						'].click(' + n + ')">' + h7.lang(h7.menu[NameMenu][i5].list[i6].text) + '</button>';
+					}
+				}
+				s+='</li>';
+			}
+			s+='</ul>';
 		}
-		s+='</ul>';
-	}
+	//}
 	return s;
 	//document.getElementById(id_out).innerHTML=s; 
 }
@@ -1485,6 +1488,7 @@ h7.window.content.ftp.line[0]=function(n){
 	<button class="i1 i1_go" onClick=""></button><button class="i1 i1_search" onClick=""></button><button class="i1 i1_menu" onClick=""></button>\
 	</div>';
 }
+h7.window.content.ftp.menu=true;
 h7.window.content.ftp.menu=function(n){ return h7.menu('ftp', n); }
 
 h7.menu.ftp=[];
@@ -1513,6 +1517,16 @@ h7.window.content.ftp.start=function(n){
 	
 	
 	
+
+	
+	
+	
+	
+	
+	
+h7.window.content.form={};
+h7.window.content.form.title=function(n){ return 'Form'; }	
+h7.window.content.form.header_button=function(n){ return h7.window.f.header_button(n); }	
 
 
 
@@ -1607,7 +1621,7 @@ h7.window.add=function(content1 , x ,y ,w ,h, status)
 	if(!h){h=500;}
   
 	if(!status){ status='open'; }
-
+	
 	
 	var ln = h7.window.list.length;
 	h7.window.list[ln]={};
@@ -1628,21 +1642,31 @@ h7.window.add=function(content1 , x ,y ,w ,h, status)
 
 	h7.window.list[ln].object.className='h7_window';
 	if(!h7.options.phone){
-		h7.window.list[ln].object.style.cssText = 'left:' + x + 'px;top:' + y + 'px;';
+		h7.window.list[ln].object.style.cssText = 'left:' + x + 'px;top:' + y + 'px;width:' + w + 'px;height:' + h + 'px;';
 	//	h7.window.list[ln].object.onmousedown=function(){ h7.window.light(ln); };
 	}
 
 	var t_out='<div class="header" id="window_' + ln + '_header" onmousedown="h7.window.move(' + ln + ',event); return false;">' +
 	'<div class="title" id="window_' + ln + '_title">' + h7.window.content[content1].title(ln) + '</div>' + h7.window.content[content1].header_button(ln,1) + '</div>';
 	
-	for(kol9=h7.window.content[content1].line.length,i9=0;i9<kol9;i9++)
+	if(typeof (h7.window.content[content1].line) === "array")
 	{
-		t_out+='<div class="line" id="window_' + ln + '_line_' + i9 + '">' + h7.window.content[content1].line[i9](ln) + '</div>';
+		for(kol9=h7.window.content[content1].line.length,i9=0;i9<kol9;i9++)
+		{
+			t_out+='<div class="line" id="window_' + ln + '_line_' + i9 + '">' + h7.window.content[content1].line[i9](ln) + '</div>';
+		}
 	}
-	t_out+='<div class="box">\
-	<div id="windows_' + ln + '_menu" class="menu">' + h7.menu(content1,ln) + '</div>\
-	<div id="windows_' + ln + '_content" class="content">' + h7.window.content[content1].content() + '</div>\
-	</div>';
+
+	
+	t_out+='<div class="box">';
+	if(h7.window.content[content1].menu)
+	{
+		t_out+=	'<div id="windows_' + ln + '_menu" class="menu">' + h7.menu(content1,ln) + '</div>\
+		<div id="windows_' + ln + '_content" class="contentm"></div>';
+	}else{
+		t_out+=	'<div id="windows_' + ln + '_content" class="content"></div>';
+	}
+	t_out+='</div>';
 
 
 	h7.window.list[ln].object.innerHTML=t_out;
@@ -1651,7 +1675,10 @@ h7.window.add=function(content1 , x ,y ,w ,h, status)
 	/*Создаем*/ 
 	document.getElementById('h7_windows').appendChild(h7.window.list[ln].object);
 
-	h7.window.content[content1].start(ln);
+	if(typeof (h7.window.content[content1].start) === "function")
+	{
+		h7.window.content[content1].start(ln);
+	}
 	return ln;
 
 }
@@ -2056,9 +2083,18 @@ h7.cookie.delete=function(cid){
 h7.form={};
 
 
-h7.form.alert=function(function1, str_html, button_y){}
-h7.form.confirm=function(function1, str_html, button_y, button_n){}
-h7.form.prompt=function(function1, str_html, button_y, button_n, inpt){}
+h7.form.alert=function(str_eval_y, str_html, button_y_text)
+{
+	h7.window.add('form', 100, 100, 550, 200);
+}
+h7.form.confirm=function(str_eval_y, str_eval_n, str_html, button_y_text, button_n_text)
+{
+	h7.window.add('form');
+}
+h7.form.prompt=function(function1, str_html, button_y_text, button_n_text, inpt)
+{
+	h7.window.add('form');
+}
 
 
 /*//Формы вид ============================================*/
