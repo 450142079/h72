@@ -1,7 +1,7 @@
 ﻿body{
 	background-color:#fff;
 	margin:0;padding:0px;
-	font-size:12px;
+	font-size:13px;
 	font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
 }
 body .box0{
@@ -20,37 +20,43 @@ body .box0{
 
 
 header{
-
+	height:130px;
+	text-align:center;
 }
 
 header .line{
 	background-color:#424a51;
-	//text-align:center;
 
 }
 header .line .box0{
-	display: table;
+	height:30px;
 }
 header .line a{
-	display: table-cell;
+	
 	display:inline-block;
 	outline: none;
 	text-decoration:none;
 	color:#fff;
-	padding:7px 25px 7px 50px;;
-	background-color:#999;
+	padding:8px 25px 7px 50px;;
+	//background-color:#777f8c;
 }
 header .line a:hover{
 	background-color:#777f8c;
+
+
 }
 
 
+header .line .l_0{
+	float:left;
+}
+header .line .r_0{
+	float:right;
+}
 header .line .l_1{
-	margin:0px 20px;
+	margin:0px 270px 0px 0px;
 }
- header .line .r_1{
- 	margin:0px 20px 0px 0px;
- }
+
 
 
 
@@ -59,8 +65,78 @@ header .line .l_1{
 
 
 header .home{
+	float:left;
+	vertical-align: middle;
+	outline: none;
+	text-decoration:none;
+	//background-color:#dedede;
+	display: inline-block;
+	height:80px;
+	width:300px;
+	padding:10px 20px;
 
 }
 header .home img{
-	width:200px;
+	height:80px;
+	vertical-align: middle;
+
+}
+
+header .home h1{
+	display:inline-block;
+	vertical-align: middle;
+	color:#424a51;
+	margin:0px 0px 0px 20px;
+	font-size:30px;
+	font-weight: 400;
+}
+
+
+
+
+
+
+
+header .right{
+	vertical-align: middle;
+	float:right;
+	outline: none;
+	text-decoration:none;
+	//background-color:#dedede;
+	display: inline-block;
+	height:100px;
+	width:340px;
+	padding:0px;
+	background-image:url(./img/go.png);
+}
+header .right:hover{
+	background-image:url(./img/go_hover.png);
+}
+
+
+
+
+header .box0 nav{
+	vertical-align: middle;
+	display:inline-block;
+	
+	margin-top:15px;
+}
+
+header .box0 nav a{
+	display:inline-block;
+	color:#000;
+	outline: none;
+	text-decoration:none;
+	font-size:18px;
+	font-weight:400;
+	margin:20px;
+	padding:5px 3px;
+	//background-color:#e6e6e6;
+	border-style:solid;
+	border-width:0px 0px 2px 0px;
+	border-color:#fff;
+}
+header .box0 nav a:hover{
+	border-color:#000;
 }
