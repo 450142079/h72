@@ -13,6 +13,50 @@ body .box0{
 
 
 
+.a1{
+	color:#00cab3;
+}
+
+
+
+.bt1 {
+	outline: none;
+	-moz-box-shadow:inset 0px 34px 0px -9px #00cab3;
+	-webkit-box-shadow:inset 0px 34px 0px -9px #00cab3;
+	box-shadow:inset 0px 34px 0px -9px #00cab3;
+	background-color:#00b09c;
+	border:1px solid #00b09c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:400;
+	padding:10px 35px;
+	text-decoration:none;
+	margin:0px;
+
+}
+.bt1:hover {
+	background-color:#00cab3;
+}
+.bt1:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -49,15 +93,28 @@ header .line a:hover{
 
 header .line .l_0{
 	float:left;
+	background-image:url(./img/mest.png);
+	background-repeat:no-repeat;
+	background-position:20px 6px;
 }
 header .line .r_0{
 	float:right;
+	background-image:url(./img/phone2.png);
+	background-repeat:no-repeat;
+	background-position:18px 6px;
+
 }
 header .line .l_1{
 	margin:0px 270px 0px 0px;
+	background-image:url(./img/mail.png);
+	background-repeat:no-repeat;
+	background-position:18px 8px;
 }
-
-
+header .line .r_1{
+	background-image:url(./img/phone.png);
+	background-repeat:no-repeat;
+	background-position:20px 7px;
+}
 
 
 
@@ -139,4 +196,73 @@ header .box0 nav a{
 }
 header .box0 nav a:hover{
 	border-color:#000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main{
+
+}
+
+
+.main .slider0{
+	background-image:url(./img/slider0.jpg);
+	background-size: cover;
+	display:block;
+	height:500px;
+	
+	transition: background-position 25s;
+}
+.main .slider0:hover{
+	background-position:-250px -400px;
+}
+
+
+.main .slider0 .bl_l{
+	display:inline-block;
+	vertical-align: bottom;
+	color:#fff;
+	font-size:30px;
+	font-weight: 400;
+	height:500px;
+	
+}
+.main .slider0 .bl_l h4{
+	font-weight: 400;
+}
+.main .slider0 .bl_l p{
+	line-height:1.5;
+	font-size:20px;
+}
+.main .slider0 .bl_r{
+	display:inline-block;
+	max-width:900px;
+
+}
+.main .slider0 .bl_r img{
+	width:100%;
+	vertical-align: bottom;
 }
