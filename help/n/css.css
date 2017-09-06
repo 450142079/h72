@@ -1,3 +1,66 @@
 ﻿body{
-	background-color:#333;
+	background-color:#fff;
+	margin:0;padding:0px;
+	font-size:12px;
+	font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
+}
+body .box0{
+	max-width:1400px;
+	margin:auto;
+	padding:0px 25px;
+}
+
+
+
+
+
+
+
+
+
+
+header{
+
+}
+
+header .line{
+	background-color:#424a51;
+	//text-align:center;
+
+}
+header .line .box0{
+	display: table;
+}
+header .line a{
+	display: table-cell;
+	display:inline-block;
+	outline: none;
+	text-decoration:none;
+	color:#fff;
+	padding:7px 25px 7px 50px;;
+	background-color:#999;
+}
+header .line a:hover{
+	background-color:#777f8c;
+}
+
+
+header .line .l_1{
+	margin:0px 20px;
+}
+ header .line .r_1{
+ 	margin:0px 20px 0px 0px;
+ }
+
+
+
+
+
+
+
+header .home{
+
+}
+header .home img{
+	width:200px;
 }
