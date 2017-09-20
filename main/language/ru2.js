@@ -1,1 +1,0 @@
-alert('Good include 2!');

@@ -3,6 +3,7 @@
  *
  * функция Проверка существования функции
  * функция Подключение файлов
+ * язык 
  * подключение настроек
  * подключение последовательности запуска
  *
@@ -33,23 +34,42 @@ function h7(f, j) {
 /**
  * Подключает javascript по url
  * 
- * @param {json} j обьект, который должен содержать параметр url
+ * @param {string} s строка с url
  */
-h7.include = function(j) {
-  var s = document.createElement('script'); 
-  s.src = j.url;
-  document.getElementsByTagName('head')[0].appendChild(s);
+h7.include = function(s) {
+  var sc = document.createElement('script'); 
+  sc.src = s;
+  document.getElementsByTagName('head')[0].appendChild(sc);
 }
 
 
 /**
- * Подключает все остальные функции
+ * Подключает переводит текст если есть перевод
+ * 
+ * @param {string} s обьект, который должен содержать параметр url
+ * @return {string}
  */
-h7.include({'url':'options.js'});
+h7.lang = function(s) {
+  if(h7.lang[h7.options.language] != undefined) {
+
+    if(h7.lang[h7.options.language][s] != undefined) {
+      return h7.lang[h7.options.language][s];
+	}
+	
+	console.log('LANG[' + h7.options.lang + ']not:' + s);
+    return s;
+  }
+}
+
+
+/**
+ * Подключает настройки
+ */
+h7.include('options.js');
 
 
 /**
  * Подключает остальных функций
  */
-h7.include({'url':'./main/start.js'});
+h7.include('./main/start.js');
 

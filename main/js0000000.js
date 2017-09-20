@@ -780,21 +780,7 @@ h7.menu=function(NameMenu, n)
   
 /*Язык в h7=========================================================*/
 //Функция возвращает перевод строки на выбранный в настройках h7[options][lang] язык
-h7.lang = function(str)
-{
-	if(h7.lang[h7.options.lang] != undefined)
-	{//если данный словарь существует
-	  if(h7.lang[h7.options.lang][str] != undefined)
-	  {//Если в словаре есть
-	    return h7.lang[h7.options.lang][str];
-	  }else{
-	  	h7.cl('LANG[' + h7.options.lang + ']not:' + str);
-	    return str;
-	  }
-	}else{
-		return str;	
-	}  
-}
+
 /*//Язык ===========================================================*/
 
 
