@@ -12,22 +12,22 @@ if(!isset($_POST['address'])){
 
   $_POST['address2']='./../../../' . $_POST['address'];
 
-  if(!file_exists($_POST['r1']))
+  if(!file_exists($_POST['address2']))
     {
-      echo 'Xh7 file/dir does not exist '.$_POST['r1'];
+      echo 'Xh7 file/dir does not exist ' . $_POST['address2'];
     }else{
 
 
 
 
-if(is_dir($_POST['r1'])){
-  rmdir1($_POST['r1']);rmdir($_POST['r1']);
-  if(file_exists($_POST['r1'])){echo'X';}else{echo'V';}
+if(is_dir($_POST['address2'])){
+  rmdir1($_POST['address2']);rmdir($_POST['address2']);
+  if(file_exists($_POST['address2'])){echo'X';}else{echo'V';}
 }else{
-  if(unlink($r[1])){echo'V';}else{echo'X';}
+  if(unlink($_POST['address2'])){echo'V';}else{echo'X';}
 }
 
-echo '<h7>'.$_POST['r0'].'<h7>Del file/dir '.$_POST['r1'];
+echo ' Delete file/dir ' . $_POST['address'];
 
 
 function rmdir1($url){
