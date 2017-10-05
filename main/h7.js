@@ -19,7 +19,7 @@
  * @param {json} j объект, который передаётся аргументом в запрашиваемой функции
  * @return {all}
  */
-function h7(f, j) {
+/*function h7(f, j) {
 	
   if (typeof h7[f] == 'function') {
     return h7[f](j);
@@ -28,7 +28,8 @@ function h7(f, j) {
   console.log('h7: not function [' + func + ']');
   return 'NOT FUNCTION';
   
-}
+}*/
+h7={"version":"04.10.17"};
 
 
 /**
@@ -62,10 +63,30 @@ h7.lang = function(s) {
 }
 
 
+
+
+/**
+ * Стандартные функции java
+ * 
+ * @param {string} s обьект, который должен содержать параметр url
+ * @return {string}
+ */
+h7.alert = function(t) {
+  alert(t);
+} 
+h7.confirm = function(t) {
+  return confirm(t);
+} 
+h7.prompt = function(t, s) {
+  return prompt(t, s);
+} 
+
+
+
 /**
  * Подключает настройки
  */
-h7.include('options.js');
+h7.include('./options.js');
 
 
 /**
