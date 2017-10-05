@@ -1,4 +1,4 @@
-<?php /*12.01.2017
+<?php /*0510.2017
 0 h7id ответа
 1 - address
 */
@@ -14,20 +14,12 @@ if(!isset($_POST['address'])){
 
   if(!file_exists($_POST['address2']))
     {
-      echo 'Xh7 file/dir does not exist ' . $_POST['address2'];
+      echo 'Xh7 file/dir does not exist ' . $_POST['address'];
     }else{
 
 
 
 
-if(is_dir($_POST['address2'])){
-  rmdir1($_POST['address2']);rmdir($_POST['address2']);
-  if(file_exists($_POST['address2'])){echo'X';}else{echo'V';}
-}else{
-  if(unlink($_POST['address2'])){echo'V';}else{echo'X';}
-}
-
-echo ' Delete file/dir ' . $_POST['address'];
 
 
 function rmdir1($url){
@@ -44,6 +36,21 @@ function rmdir1($url){
   }
  }
 }
+
+
+
+
+if(is_dir($_POST['address2'])){
+  rmdir1($_POST['address2']);rmdir($_POST['address2']);
+  if(file_exists($_POST['address2'])){echo'X';}else{echo'V';}
+}else{
+  if(unlink($_POST['address2'])){echo'V';}else{echo'X';}
+}
+
+echo ' Delete file/dir ' . $_POST['address'];
+
+
+
 
 
 

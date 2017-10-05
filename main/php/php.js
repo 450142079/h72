@@ -105,6 +105,7 @@ h7.php.test = function() {
 	setTimeout(function(){ h7.create.file({"where":"h7test/a1", "name":"1.txt", "text":"555"}); } ,6000);
 
 
+	setTimeout(function(){ h7.delete('h7test'); } ,9000);
 	h7.report.console();
 }
 
@@ -171,6 +172,53 @@ h7.delete=function(address){
 
 
 
+
+
+
+
+
+
+//address name_new
+//переименовать
+h7.rename=function(j){
+	if(!url){ return false; }
+	var arr4=j.address.split('/');
+	if(!name_new){ return false; }
+
+	var url_new='';
+	for(i9=0;i9<arr4.length-1;i9++){url_new+=arr4[i9] + '/';}
+	url_new+=name_new;
+
+	var h7id = h7.report.add(h7.lang('Rename ') + url + h7.lang(' to ') + url_new, 1);
+	h7.ajax('h7_rename.php', [h7id, url, url_new], h7.report.add, 2);
+}
+
+
+
+
+
+
+
+//Переместить
+h7.move=function(url, url_new){
+	if(!url){ return false; }
+	if(!url_new){ return false; }
+
+	var h7id = h7.report.add(h7.lang('Move ') + url + h7.lang(' to ') + url_new, 1);
+	h7.ajax('h7_rename.php', [h7id, url, url_new], h7.report.add, 2);
+}
+
+
+
+
+
+h7.copy=function(url, url_new){
+	if(!url){ return false; }
+	if(!url_new){ return false; }
+
+	var h7id = h7.report.add(h7.lang('Copy ') + url + h7.lang(' to ') + url_new, 1);
+	h7.ajax('h7_copy.php', [h7id, url, url_new], h7.report.add, 2);
+}
 
 
 

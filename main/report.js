@@ -64,7 +64,7 @@ h7.report={"list":[{"status":"T","text":"HAMSTER7 [" + h7['version'] + "]","time
 //E Ответ пришёл с ошибкой
 //R ответ с удачей
 h7.report.add = function(j) {
-  console.log(j);
+
   var le=h7.report.list.length;
   
   switch(j.type){
@@ -79,6 +79,7 @@ h7.report.add = function(j) {
 
     case 'answer':{
       le = j.le;	
+
       h7.report.list[le]['answer_time'] = h7.time();
       h7.report.list[le]['answer_text'] = j.text;
       var st='E';
@@ -109,8 +110,8 @@ h7.report.console = function() {
 
   le = h7.report.list.length - 1;
   for ( i=le; i >= 0; i-- ) {
-    console.log('[' + h7.report.list[le]['status'] + i + '] ' +
-     h7.report.list[i]['text'] + '|' + h7.report.list[le]['answer_text']);
+    console.log('[' + h7.report.list[i]['status'] + i + '] ' +
+     h7.report.list[i]['text'] + '|' + h7.report.list[i]['answer_text']);
   }
 }
 
